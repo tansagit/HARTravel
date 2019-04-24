@@ -1,0 +1,145 @@
+﻿@{ 
+    var slides = (List<HARTravel.Models.Destination>)ViewBag.Slides;
+    var tourHot = (List<HARTravel.Models.Tour>)ViewBag.TourHots;
+    var newsAndEvent = (List<HARTravel.Models.News>)ViewBag.NewsAndEvents;
+}
+<main>
+    <section class="slider">
+        <div id="slider" class="flexslider">
+            <ul class="slides">
+                @foreach (var item in slides)
+                {
+                    <li>
+                        <img src="@item.Image" alt="">
+                        <div class="meta">
+                            <h3>@item.DestinationName, @item.Description</h3>
+                            <div class="info">
+                                <p><strong>220</strong> Hotels - <strong>150</strong> Restaurant</p>
+                            </div>
+                            <a href="@Url.Action("","Tour",new{des=item.Id})" class="btn_1">Xem tour</a>
+                        </div>
+                    </li>
+                }
+               
+
+            </ul>
+            <div id="icon_drag_mobile"></div>
+        </div>
+        <div id="carousel_slider_wp">
+            <div id="carousel_slider" class="flexslider">
+                <ul class="slides">
+                    @foreach (var item1 in slides)
+                    {
+                        <li>
+                            
+                                <img src="@item1.Image" alt="">
+                                <div class="caption">
+                                    <h3>@item1.DestinationName </h3>
+                                    <small>$75 per person <strong id="weather" class="weather"></strong></small>
+                                </div>
+                          
+                            
+                        </li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+   
+    <div class="container-fluid margin_80_0">
+        <div class="main_title_2">
+            <span><em></em></span>
+            <h2>Tours phổ biến</h2>
+            <p>Những tour có rate cao</p>
+        </div>
+        <div id="reccomended" class="owl-carousel owl-theme">
+            @foreach (var item in tourHot)
+            {
+                <div class="item">
+                    <div class="box_grid">
+                        <figure>
+                            <a href="#0" class="wish_bt"></a>
+                            <a href="~/Tour/TourDetail/@item.Id"><img src="@item.Image" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
+                            <small>@item.Destination.DestinationName</small>
+                        </figure>
+                        <div class="wrapper">
+                            <h3><a href="~/Tour/TourDetail/@item.Id">@item.TourName</a></h3>
+                            <p>@item.Description</p>
+                            <span class="price">From <strong>@item.Price.ToString("N0") VNĐ</strong> / người</span>
+                        </div>
+                        <ul>
+                            <li><i class="icon_clock_alt"></i> 1h 30min</li>
+                            <li><div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /item -->
+            }
+
+
+        </div>
+        <!-- /carousel -->
+        <div class="container">
+            <p class="btn_home_align"><a href="tours-grid-isotope.html" class="btn_1 rounded">Tất cả Tours</a></p>
+        </div>
+        <!-- /container -->
+        <hr class="large">
+    </div>
+    <!-- /container -->
+
+    
+    <!-- /container -->
+    <div class="bg_color_1">
+        <div class="container margin_80_55">
+            <div class="main_title_2">
+                <span><em></em></span>
+                <h3>Tin tức & sự kiện</h3>
+                <p>Cập nhật các tin tức và sự kiện mới nhất</p>
+            </div>
+            <div class="row">
+                @foreach (var item3 in newsAndEvent)
+                {
+                    <div class="col-lg-6">
+                        <a class="box_news" href="#0">
+                            <figure>
+                                <img src="@item3.Image" alt="">
+                                <figcaption>@item3.Id</figcaption>
+                            </figure>
+                            <ul>
+                                <li>@item3.Employee.EmpName</li>
+                                <li>@item3.DateCreate.ToShortDateString()</li>
+                            </ul>
+                            <h4>@item3.Title</h4>
+                            <p>@item3.SubTitle</p>
+                        </a>
+                    </div>
+                    <!-- /box_news -->
+                }
+
+
+            </div>
+            <!-- /row -->
+            <p class="btn_home_align"><a href="~/News" class="btn_1 rounded">Tất cả tin tức</a></p>
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /bg_color_1 -->
+    <div class="call_section">
+        <div class="container clearfix">
+            <div class="col-lg-5 col-md-6 float-right wow" data-wow-offset="250">
+                <div class="block-reveal">
+                    <div class="block-vertical"></div>
+                    <div class="box_1">
+                        <h3>Đây sẽ là một trải nghiệm tuyệt vời đối với bạn</h3>
+                        <p> Chúng tôi mang đến cho bạn những chuyên đi đầy trải nghiệm với những chất lượng phục vụ chuyên nghiệp và tuyệt vời nhất bạn nhận được </p>
+                        <a href="#0" class="btn_1 rounded">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/call_section-->
+</main>

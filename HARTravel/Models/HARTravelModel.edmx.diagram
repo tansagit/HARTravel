@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dbdd356e83a441d6931dcae8d2150fa4" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="HARTravelModel.BookTour" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Category" Width="1.5" PointX="1.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Customer" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Destination" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Employee" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.FAQ" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.ForgotPassword" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.FPEmployee" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.News" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Policy" Width="1.5" PointX="7.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Review" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Role" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Status" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.SubCategory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Tour" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.Voucher" Width="1.5" PointX="7.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HARTravelModel.AboutU" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="HARTravelModel.FK_BookTours_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_BookTours_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_BookTours_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_BookTours_Tours" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_SubCategories_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_ForgotPasswords_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_Reviews_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_Tours_Destinations1" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_Tours_Destinations2" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_Employees_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_FPEmployees_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_News_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_News_SubCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_Reviews_Tours" ManuallyRouted="false" />
+        <AssociationConnector Association="HARTravelModel.FK_Tours_SubCategories" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HARTravelModel.ContactU" Width="1.5" PointX="10.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

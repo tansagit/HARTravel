@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel | Login</title>
+
+    <link href="~/Content/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Content/Admin/css/animate.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg" filter-color="black" style="background-image: url('../../../../Content/Admin/img/login.jpg'); background-size: cover; background-position: top center;">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div class="cart">
+            <form class="m-t" id="loginForm" method="post" novalidate>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="loginName" placeholder="Username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="pass" placeholder="Password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                <div>@ViewBag.Message</div>
+                <a href="#"><small>Forgot password?</small></a>
+                
+            </form>
+            <p class="m-t"> <small>HARTravel dev team &copy; 2018</small> </p>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="~/Content/Admin/js/jquery-3.1.1.min.js"></script>
+    <script src="~/Content/Admin/js/popper.min.js"></script>
+    <script src="~/Content/Admin/js/bootstrap.js"></script>
+
+</body>
+
+</html>

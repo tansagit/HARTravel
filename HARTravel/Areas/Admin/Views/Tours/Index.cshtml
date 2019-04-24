@@ -1,0 +1,178 @@
+﻿
+@using PagedList.Mvc
+@model PagedList.IPagedList<HARTravel.Models.Tour>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create","", htmlAttributes: new { @class = "btn btn-w-m btn-primary" })
+</p>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox">
+        <div class="ibox-title">
+            <h5>tìm kiếm chi tiết</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+       
+        
+        
+        
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Tất cả các tour hiện có của HARTravel</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#" class="dropdown-item">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <div class="table-responsive">
+                        @using (Html.BeginForm())
+    {
+                    <div class="input-group">
+
+                        @Html.TextBox("name", null, new { @class = "form-control" })
+
+                        <input type="submit" value="search" class="btn btn-primary">
+
+
+                    </div>
+}
+                        <div style="height:20px">
+
+                        </div>
+                        <table class="table table-striped table-bordered table-hover ">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.ActionLink("Id", "Index", new { page = Model.PageNumber, sort = ViewBag.SortId, search = ViewBag.currentSearch })
+                                    </th>
+                                    <th>Tour Name</th>
+                                    <th>Price</th>
+                                    <th>Day Of Tour</th>
+                                    <th>Image</th>
+                                    <th>Location</th>
+                                    <th>Destination</th>
+                                    <th>Function</th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+        {
+
+
+                    <tr class="gradeX">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TourName)
+                        </td>
+                        <td>
+                            @item.Price.ToString("N0")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DaysOfTour)
+                        </td>
+                        <td>
+                            <img style="cursor:pointer" id="img_@item.Id" src="@item.Image" width="80" onclick="selectImage('Tours/ChangeTour/@item.Id',@item.Id)" />
+                            <script>
+                                function selectImage(action, id) {
+                                    var finder = new CKFinder();
+                                    finder.selectActionFunction = function (fileUrl) {
+                                        finder.popup();
+                                        $.ajax({
+                                            method: 'GET',
+                                            url: action,
+                                            data: { image: fileUrl }
+                                        }).done(function (path) {
+                                            if (path != "") {
+                                                alert('loi hinh anh' + path);
+                                            } else {
+                                                $("#" + id).attr('src', fileUrl);
+                                            }
+                                        });
+                                    }
+                                }
+                            </script>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination1.DestinationName)
+                        </td>
+                        <td>
+                            <button class="btn btn-info" type="button">
+                                <i class="fa fa-paste">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, htmlAttributes: new { Style = "color: white" })
+                                </i>
+
+                            </button>
+                            <button class="btn btn-success" type="button">
+                                <i class="fa fa-upload">
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }, htmlAttributes: new { Style = "color: white" })
+                                </i>
+
+                            </button>
+                            <button class="btn btn-danger" type="button">
+                                <i class="fa fa-times">
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, htmlAttributes: new { Style = "color: white" })
+                                </i>
+
+                            </button>
+
+                        </td>
+                    </tr>
+}
+
+                        </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { @page = page, sort = ViewBag.CurrentSort, id = ViewBag.CurrentSearch, name=ViewBag.CurrenSearch }))
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

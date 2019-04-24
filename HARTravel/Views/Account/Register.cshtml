@@ -1,0 +1,141 @@
+﻿@model HARTravel.Models.RegisterVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.ansonika.com/panagea/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Aug 2018 07:21:21 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Panagea - Premium site template for travel agencies, hotels and restaurant listing.">
+    <meta name="author" content="Ansonika">
+    <title>Panagea | Premium site template for travel agencies, hotels and restaurant listing.</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- BASE CSS -->
+    <link href="~/Content/Client/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Client/css/style.css" rel="stylesheet">
+    <link href="~/Content/Client/css/vendors.css" rel="stylesheet">
+    <link href="~/Content/Client/css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+
+    <!-- ALTERNATIVE COLORS CSS -->
+    <link href="#" id="colors" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="~/Content/Client/css/custom.css" rel="stylesheet">
+
+</head>
+
+<body id="register_bg">
+
+    <nav id="menu" class="fake_menu"></nav>
+
+    <div id="preloader">
+        <div data-loader="circle-side"></div>
+    </div>
+    <!-- End Preload -->
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="login">
+            <aside>
+                <figure>
+                    <a href="index.html"><img src="img/logo_sticky.png" width="150" height="36" data-retina="true" alt="" class="logo_sticky"></a>
+                </figure>
+                <form autocomplete="off" method="post" novalidate>
+
+                    <div class="form-group">
+                        <label>Email của bạn</label>
+                        @*<input class="form-control" type="email" name="Email">*@
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        <i class="icon_mail_alt"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu của bạn</label>
+                        @*<input class="form-control" type="password" id="password1" name="Password">*@
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        <i class="icon_lock_alt"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>Xác nhận mật khẩu</label>
+                        @*<input class="form-control" type="password" id="password2" name="ConfirmPassword">*@
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        <i class="icon_lock_alt"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên đầy đủ</label>
+                        @*<input class="form-control" type="text" name="CustomerName">*@
+                        @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                        <i class="ti-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        @*<input class="form-control" type="text" name="Phone">*@
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        <i class="ti-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        @*<input class="form-control" type="text" name="Phone">*@
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        <i class="ti-user"></i>
+                    </div>
+                    <div id="pass-info" class="clearfix"></div>
+                    <button type="submit" class="btn_1 rounded full-width add_top_30">Register Now</button>
+                    <div class="text-center add_top_10">Already have an acccount? <strong><a href="@Url.Action("Login","Account")">Sign In</a></strong></div>
+                    <div class="text-center add_top_10"><strong>@ViewBag.Message</strong></div>
+                </form>
+                <div class="copy">© 2018 Panagea</div>
+            </aside>
+        </div>
+    }
+
+    <!-- /login -->
+    <!-- COMMON SCRIPTS -->
+    <script src="~/Content/Client/js/jquery-2.2.4.min.js"></script>
+    <script src="~/Content/Client/js/common_scripts.js"></script>
+    <script src="~/Content/Client/js/main.js"></script>
+    <script src="assets/validate.js"></script>
+
+    <!-- SPECIFIC SCRIPTS -->
+    <script src="~/Content/Client/js/pw_strenght.js"></script>
+
+    <!-- COLOR SWITCHER  -->
+    <script src="~/Content/Client/js/switcher.js"></script>
+    <div id="style-switcher">
+        <h6>Color Switcher <a href="#"><i class="ti-settings"></i></a></h6>
+        <div>
+            <ul class="colors" id="color1">
+                <li><a href="#" class="default" title="Default"></a></li>
+                <li><a href="#" class="aqua" title="Aqua"></a></li>
+                <li><a href="#" class="green_switcher" title="Green"></a></li>
+                <li><a href="#" class="orange" title="Orange"></a></li>
+                <li><a href="#" class="blue" title="Blue"></a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+<!-- Mirrored from www.ansonika.com/panagea/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Aug 2018 07:21:22 GMT -->
+</html>
+
